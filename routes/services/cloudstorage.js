@@ -19,7 +19,7 @@ const uniqueFilenames = {
 
 
 app.get("/api/cloudstorage/system", checkClientToken, (req, res) => {
-    if (req.headers["user-agent"].split("-")[1].includes("13.40")) {
+    if (req.headers["user-agent"].split("-")[1].includes("14.00")) {
         res.status(404).end()
         return
     }
@@ -37,7 +37,7 @@ app.get("/api/cloudstorage/system", checkClientToken, (req, res) => {
             length: file.length,
             contentType: "application/octet-stream",
             uploaded: fs.statSync(`${__dirname}/../../cloudstorage/${x}`).mtime,
-            storageType: "S3",
+            storageType: "S4",
             doNotCache: false
         }
     })
